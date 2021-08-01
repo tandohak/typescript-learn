@@ -1,23 +1,23 @@
-class Human {
-    public name: string;
-    public gender: string;
-    public age: number;
+class Block {
+  public index: number;
+  public hash: string;
+  public previousHash: string;
+  public data: string;
+  public timestamp: number;
 
-    constructor(name: string, age: number, gender: string) {
-        this.name = name;
-        this.gender = gender;
-        this.age = age;
-    }
-
+  constructor(index: number, hash: string, previousHash: string, data: string, timestamp: number) {
+    this.index = index;
+    this.hash = hash;
+    this.previousHash = previousHash;
+    this.data = data;
+    this.timestamp = timestamp;
+  }
 }
 
-const yoonPyo = new Human("yoon pyo", 23, "male");
+const genesisBlock: Block = new Block(0, "sdjafklasdfjk", "", "Hello", 1233456);
 
+const blockChain: [Block] = [genesisBlock];
 
-const sayHi = (person: Human) : string => {
-    return `Hi, ${person.name}! you are ${person.age}, you are a ${person.gender}`
-}
+console.log(blockChain);
 
-console.log(sayHi(yoonPyo));
-
-export {}
+export {};
