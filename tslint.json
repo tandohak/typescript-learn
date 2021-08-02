@@ -3,7 +3,7 @@
   "extends": ["tslint:recommended", "tslint-config-prettier"],
   "jsRules": {},
   "rules": {
-    "semicolon": true,
+    "semicolon": [true, "ignore-bound-class-methods"],
     "no-console": false
   },
   "rulesDirectory": []
