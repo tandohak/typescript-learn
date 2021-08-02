@@ -46,7 +46,11 @@ const createNewBlock = (data: string): Block => {
   const newTimestamp: number = getNewTimestamp();
   const newHash: string = Block.caculateBlockHash(newIdex, previousBlock.hash, data, newTimestamp);
 
-  return new Block(newIdex, newHash, previousBlock.hash, data, newTimestamp);
+  const newBlock = new Block(newIdex, newHash, previousBlock.hash, data, newTimestamp);
+
+  addBlock(newBlock);
+
+  return newBlock;
 };
 
 const getHashforBlock = (aBlock: Block): string =>
@@ -71,5 +75,11 @@ const addBlock = (candidateBlock: Block): void => {
     blockChain.push(candidateBlock);
   }
 };
+
+createNewBlock("second block");
+createNewBlock("third block");
+createNewBlock("fourth block");
+
+console.log(blockChain);
 
 export {};
